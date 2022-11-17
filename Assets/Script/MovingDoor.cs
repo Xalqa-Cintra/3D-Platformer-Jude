@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovingDoor : MonoBehaviour
 {
+    public bool isOpen = false;
 
     public Transform door;
     public Transform startingPoint;
@@ -17,8 +18,9 @@ public class MovingDoor : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        if(isOpen == true)
         door.position = Vector3.MoveTowards(door.position, endingPoint.position, Time.deltaTime);
     }
 }
