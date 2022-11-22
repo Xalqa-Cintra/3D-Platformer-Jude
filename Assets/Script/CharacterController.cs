@@ -44,18 +44,19 @@ public class CharacterController : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
         sprintTimer = maxSprint;
-        
+
     }
 
 
     // Update is called once per frame
     void Update()
-    { 
-        
-        
-        Vector3 newVelocity = (transform.forward * Input.GetAxis("Vertical") * maxSpeed) + (transform.right * Input.GetAxis("Horizontal") * maxSpeed);
+    {
+
+
+        Vector3 newVelocity = (transform.forward * Input.GetAxis("Vertical") * maxSpeed) +
+                              (transform.right * Input.GetAxis("Horizontal") * maxSpeed);
         myRigidbody.velocity = new Vector3(newVelocity.x, myRigidbody.velocity.y, newVelocity.z);
-     
+
         //cam settings
         rotation = rotation + Input.GetAxis("Mouse X") * rotationSpeed;
         transform.rotation = Quaternion.Euler(new Vector3(0.0f, rotation, 0.0f));
@@ -69,6 +70,7 @@ public class CharacterController : MonoBehaviour
         {
             jump();
         }
+
         camRotation = Mathf.Clamp(camRotation, -40.0f, 40.0f);
 
         //second leg piece
@@ -79,34 +81,35 @@ public class CharacterController : MonoBehaviour
 
         isOnGround = Physics.CheckSphere(groundChecker.transform.position, 0.1f, groundLayer);
 
-       
+
         sprintTimer = Mathf.Clamp(sprintTimer, 0.0f, maxSprint);
 
-       
+
     }
 
-    
+
     void jump()
     {
         //When have half of legs
         if (isOnGround == true && Input.GetKeyDown(KeyCode.Space))
         {
-            myRigidbody.AddForce(transform.up * jumpForce);        
+            myRigidbody.AddForce(transform.up * jumpForce);
         }
 
     }
 
     void sprint()
     {
-         //when have all legs
+        //when have all legs
         if (Input.GetKey(KeyCode.LeftShift) && sprintTimer > 0.0f)
         {
             maxSpeed = sprintSpeed;
             sprintTimer = sprintTimer - Time.deltaTime;
-        } else
+        }
+        else
         {
             maxSpeed = normalSpeed;
-            if(Input.GetKey(KeyCode.LeftShift) == false)
+            if (Input.GetKey(KeyCode.LeftShift) == false)
             {
                 sprintTimer = sprintTimer + Time.deltaTime;
 

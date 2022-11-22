@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\jmadiganhenn2022.SCHOOL\.Rider2019.1\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\jmadiganhenn2022.SCHOOL\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_3D-Platformer-Jude.-1138008180.00" t="ExcludeRecursive" />
+    <e p="H:\3D-Platformer-Jude" t="IncludeRecursive">
+      <e p="3D-Platformer-Jude.sln" t="IncludeFlat" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Script" t="Include">
+          <e p="BoneCollectionScript.cs" t="Include" />
+          <e p="CharacterController.cs" t="Include" />
+          <e p="Collectible.cs" t="Include" />
+          <e p="DoorSensor.cs" t="Include" />
+          <e p="MovingDoor.cs" t="Include" />
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\Bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

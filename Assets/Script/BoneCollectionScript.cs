@@ -24,9 +24,10 @@ public class BoneCollectionScript : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
 
-        if (GameObject) ;
-        pm.canClimb = true;
-
+        if (gameobject) 
+        {
+            pm.canClimb = true;
+        }
         
         Destroy(gameObject);
 
