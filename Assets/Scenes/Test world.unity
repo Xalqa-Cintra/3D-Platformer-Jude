@@ -1457,6 +1457,9 @@ MonoBehaviour:
   canClimb: 0
   canJump: 0
   canClimbFast: 0
+  knife: 0
+  heart: 0
+  ribcage: 0
 --- !u!136 &1425512029
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1785,7 +1788,7 @@ GameObject:
   - component: {fileID: 1924353619}
   m_Layer: 0
   m_Name: Collectible
-  m_TagString: Untagged
+  m_TagString: Skull
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
