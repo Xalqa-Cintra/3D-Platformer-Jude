@@ -32,10 +32,14 @@ public class CharacterController : MonoBehaviour
     GameObject cam;
     Rigidbody myRigidbody;
 
+    //booleans
     public bool canSprint = false;
     public bool canClimb = false;
     public bool canJump = false;
     public bool canClimbFast = false;
+    public bool knife = false;
+    public bool heart = false;
+    public bool ribcage = false;
 
     // Start is called before the first frame update
     void Start()
@@ -45,16 +49,18 @@ public class CharacterController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         sprintTimer = maxSprint;
 
+        gameObject.tag = "Player";
+
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        maxSpeed = normalSpeed;
 
+        Vector3 newVelocity = (transform.forward * Input.GetAxis("Vertical") * maxSpeed) + (transform.right * Input.GetAxis("Horizontal") * maxSpeed);
 
-        Vector3 newVelocity = (transform.forward * Input.GetAxis("Vertical") * maxSpeed) +
-                              (transform.right * Input.GetAxis("Horizontal") * maxSpeed);
         myRigidbody.velocity = new Vector3(newVelocity.x, myRigidbody.velocity.y, newVelocity.z);
 
         //cam settings
@@ -84,9 +90,48 @@ public class CharacterController : MonoBehaviour
 
         sprintTimer = Mathf.Clamp(sprintTimer, 0.0f, maxSprint);
 
+        
+
 
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Leg 1")
+        {
+            canJump = true;
+        }
+
+        if (other.tag == "Leg 2")
+        {
+            canSprint = true;
+        }
+
+        if (other.tag == "Arm 1")
+        {
+            canClimb = true;
+        }
+
+        if (other.tag == "Arm 2")
+        {
+            canClimbFast = true;
+        }
+
+        if (other.tag == "Heart")
+        {
+            heart = true;
+        }
+
+        if (other.tag == "Knife")
+        {
+            knife = true;
+        }
+
+        if (other.tag == "Ribcage")
+        {
+            ribcage = true;
+        }
+    }
 
     void jump()
     {
