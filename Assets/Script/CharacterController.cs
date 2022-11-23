@@ -6,34 +6,41 @@ public class CharacterController : MonoBehaviour
 {
 
 
-    //camera
+
+    [Header("camera")]
     public float camRotationSpeed = -1.5f;
     public float rotationSpeed = 2.0f;
 
-    //speed settings
+
+    [Header("speed settings")]
     public float maxSpeed;
     public float normalSpeed = 10.0f;
     public float sprintSpeed = 20.0f;
 
-    //sprint and jump settings
+    [Header("sprint and jump settings")]
     public float maxSprint = 5.0f;
     float sprintTimer;
     public float jumpForce = 300.0f;
 
+    [Header("climb settings")]
+    public float climbSpeed;
 
-    //camera settings
+    [Header("camera settings")]
     float rotation = 0.0f;
     float camRotation = 0.0f;
 
     bool isOnGround;
+    bool isOnWall;
     public GameObject groundChecker;
+    public GameObject wallChecker;
     public LayerMask groundLayer;
+    public LayerMask wallLayer;
     public int skullPoints; 
 
     GameObject cam;
     Rigidbody myRigidbody;
 
-    //booleans
+    [Header("Booleans")]
     public bool canSprint = false;
     public bool canClimb = false;
     public bool canJump = false;
@@ -86,7 +93,12 @@ public class CharacterController : MonoBehaviour
             sprint();
         }
 
+        if(canClimb == true)
+        {
+            wallclimb();
+        }
         isOnGround = Physics.CheckSphere(groundChecker.transform.position, 0.1f, groundLayer);
+        isOnWall = Physics.CheckSphere(wallChecker.transform.position, 0.1f, wallLayer);
 
 
         sprintTimer = Mathf.Clamp(sprintTimer, 0.0f, maxSprint);
@@ -144,7 +156,7 @@ public class CharacterController : MonoBehaviour
         //When have half of legs
         if (isOnGround == true && Input.GetKeyDown(KeyCode.Space))
         {
-            myRigidbody.AddForce(transform.up * jumpForce);
+            myRigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
         }
 
     }
@@ -168,4 +180,18 @@ public class CharacterController : MonoBehaviour
         }
     }
 
+    void wallclimb()
+    {
+        if(isOnWall && Input.GetKey(KeyCode.W))
+        {
+            myRigidbody.useGravity = false;
+            myRigidbody.AddForce(transform.up * climbSpeed, ForceMode.Force);
+
+        }
+        if (!isOnWall)
+        {
+            myRigidbody.useGravity = true;
+            myRigidbody.AddForce(transform.up * -0.1f, ForceMode.Impulse);
+        }
+    }
 }
