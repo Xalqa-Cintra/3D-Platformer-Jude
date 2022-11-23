@@ -11,6 +11,7 @@ TagManager:
   - Ribcage
   - Knife
   - Heart
+  - Skull
   layers:
   - Default
   - TransparentFX
