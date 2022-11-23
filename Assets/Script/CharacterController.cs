@@ -24,6 +24,7 @@ public class CharacterController : MonoBehaviour
 
     [Header("climb settings")]
     public float climbSpeed;
+    public float grav;
 
     [Header("camera settings")]
     float rotation = 0.0f;
@@ -191,7 +192,7 @@ public class CharacterController : MonoBehaviour
         if (!isOnWall)
         {
             myRigidbody.useGravity = true;
-            myRigidbody.AddForce(transform.up * -0.1f, ForceMode.Impulse);
+            myRigidbody.AddForce(transform.up * grav, ForceMode.Impulse);
         }
     }
 }
