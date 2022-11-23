@@ -5,7 +5,7 @@ using UnityEngine;
 public class BoneCollectionScript : MonoBehaviour
 {
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         
         Destroy(gameObject);

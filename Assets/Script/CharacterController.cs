@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,6 +28,7 @@ public class CharacterController : MonoBehaviour
     bool isOnGround;
     public GameObject groundChecker;
     public LayerMask groundLayer;
+    public int skullPoints; 
 
     GameObject cam;
     Rigidbody myRigidbody;
@@ -57,7 +58,7 @@ public class CharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        maxSpeed = normalSpeed;
+        
 
         Vector3 newVelocity = (transform.forward * Input.GetAxis("Vertical") * maxSpeed) + (transform.right * Input.GetAxis("Horizontal") * maxSpeed);
 
@@ -130,6 +131,11 @@ public class CharacterController : MonoBehaviour
         if (other.tag == "Ribcage")
         {
             ribcage = true;
+        }
+
+        if (other.tag == "Skull")
+        {
+            skullPoints = skullPoints + 1;
         }
     }
 
