@@ -7,11 +7,11 @@ TagManager:
   - Leg 1
   - Leg 2
   - Arm 1
-  - Arm 2
   - Ribcage
   - Knife
   - Heart
   - Skull
+  - Joints
   layers:
   - Default
   - TransparentFX

@@ -126,7 +126,7 @@ public class CharacterController : MonoBehaviour
             canClimb = true;
         }
 
-        if (other.tag == "Arm 2")
+        if (other.tag == "Joints")
         {
             canClimbFast = true;
         }
