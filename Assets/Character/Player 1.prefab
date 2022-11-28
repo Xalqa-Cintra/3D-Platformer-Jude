@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 1802017460826635933}
   - component: {fileID: 1802017460826635934}
   - component: {fileID: 1802017460826635935}
+  - component: {fileID: 9026909078131422475}
   - component: {fileID: 1802017460826635928}
   m_Layer: 6
   m_Name: Player 1
@@ -226,6 +227,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6aa253f08ef9cd4e871053b512daa86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textNeedMoreSouls: You need more for the Gods
+  textSummonGod: The Gods have been satisfied
+  textCanJump: You can now jump!
+  textCanClimb: You can now climb!
+  textCanSprint: You can now sprint!
+  textCanClimbFast: You now have anchors for your undead body
+  textKnife: I wonder what this knife can be used for?
+  textHeart: Seems kind of odd for this heart to be unaffected by time, what if its
+    needed for something?
+  textRibs: The start of your revenge is nigh, now find the rest of your body
+  textElement: {fileID: 0}
   camRotationSpeed: -1.5
   rotationSpeed: 2
   maxSpeed: 10
@@ -251,6 +263,18 @@ MonoBehaviour:
   knife: 0
   heart: 0
   ribcage: 0
+--- !u!114 &9026909078131422475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802017460826635929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68e66637b6122504cbf7295c546511e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &1802017460826635928
 Rigidbody:
   m_ObjectHideFlags: 0

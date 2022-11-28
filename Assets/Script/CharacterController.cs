@@ -1,16 +1,12 @@
  using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class CharacterController : MonoBehaviour
 {
 
-    [Header("Text")]
-    public string needMoreSoulsText;
-    public string summonGodText;
-    public Text textElement;
-
+    
 
     [Header("camera")]
     public float camRotationSpeed = -1.5f;
@@ -60,7 +56,7 @@ public class CharacterController : MonoBehaviour
     {
         cam = GameObject.Find("Main Camera");
         myRigidbody = GetComponent<Rigidbody>();
-        Cursor.lockState = CursorLockMode.Locked;
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         sprintTimer = maxSprint;
 
         gameObject.tag = "Player";
@@ -99,6 +95,7 @@ public class CharacterController : MonoBehaviour
             sprint();
         }
 
+        //first arm piece
         if(canClimb == true)
         {
             wallclimb();
@@ -119,52 +116,52 @@ public class CharacterController : MonoBehaviour
         if (other.tag == "Leg 1")
         {
             canJump = true;
+
+          
         }
 
         if (other.tag == "Leg 2")
         {
             canSprint = true;
+
+     
         }
 
         if (other.tag == "Arm 1")
         {
             canClimb = true;
+
         }
 
         if (other.tag == "Joints")
         {
             canClimbFast = true;
+
+
         }
 
         if (other.tag == "Heart")
         {
             heart = true;
+
         }
 
         if (other.tag == "Knife")
         {
             knife = true;
+
+   
         }
 
         if (other.tag == "Ribcage")
         {
             ribcage = true;
+
         }
 
         if (other.tag == "Skull")
         {
             skullPoints = skullPoints + 1;
-        }
-
-        if (other.tag == "Egg"
-        && skullPoints > 40)
-        {
-            summonGodText;
-        }
-        else if (other.tag == "Egg"
-        && skullPoints < 40)
-        {
-            needMoreSoulsText;
         }
 
     }
