@@ -482,35 +482,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 68.976, z: 0}
---- !u!1 &593977118 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1802017460826635929, guid: b211db131d1d6734aa866ae2be6e1786, type: 3}
-  m_PrefabInstance: {fileID: 1802017459950643395}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &593977119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 593977118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68e66637b6122504cbf7295c546511e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textNeedMoreSouls: You need more for the Gods
-  textSummonGod: The Gods have been satisfied
-  textCanJump: You can now jump!
-  textCanClimb: You can now climb!
-  textCanSprint: You can now sprint!
-  textCanClimbFast: You now have anchors for your undead body
-  textKnife: I wonder what this knife can be used for?
-  textHeart: Seems kind of odd for this heart to be unaffected by time, what if its
-    needed for something?
-  textRibs: The start of your revenge is nigh, now find the rest of your body
-  textElement: {fileID: 949456147}
-  skullPoints: 0
 --- !u!1001 &690974650
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -914,7 +885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
