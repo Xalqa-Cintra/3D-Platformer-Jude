@@ -12,6 +12,8 @@ TagManager:
   - Heart
   - Skull
   - Joints
+  - Arm 2
+  - Egg
   layers:
   - Default
   - TransparentFX
