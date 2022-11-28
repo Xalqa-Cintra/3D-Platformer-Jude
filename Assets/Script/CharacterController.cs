@@ -1,10 +1,15 @@
  using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterController : MonoBehaviour
 {
 
+    [Header("Text")]
+    public string needMoreSoulsText;
+    public string summonGodText;
+    public Text textElement;
 
 
     [Header("camera")]
@@ -150,6 +155,18 @@ public class CharacterController : MonoBehaviour
         {
             skullPoints = skullPoints + 1;
         }
+
+        if (other.tag == "Egg"
+        && skullPoints > 40)
+        {
+            summonGodText;
+        }
+        else if (other.tag == "Egg"
+        && skullPoints < 40)
+        {
+            needMoreSoulsText;
+        }
+
     }
 
     void jump()
