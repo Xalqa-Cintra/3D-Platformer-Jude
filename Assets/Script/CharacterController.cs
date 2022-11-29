@@ -172,8 +172,14 @@ public class CharacterController : MonoBehaviour
         if (isOnGround == true && Input.GetKeyDown(KeyCode.Space))
         {
             myRigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-        }
 
+          
+        }
+            if (!isOnWall)
+            {
+                myRigidbody.useGravity = true;
+                myRigidbody.AddForce(transform.up * grav, ForceMode.Impulse);
+            }
     }
 
     void sprint()
@@ -203,10 +209,6 @@ public class CharacterController : MonoBehaviour
             myRigidbody.AddForce(transform.up * climbSpeed, ForceMode.Force);
 
         }
-        if (!isOnWall)
-        {
-            myRigidbody.useGravity = true;
-            myRigidbody.AddForce(transform.up * grav, ForceMode.Impulse);
-        }
+       
     }
 }
