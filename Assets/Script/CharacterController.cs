@@ -106,7 +106,11 @@ public class CharacterController : MonoBehaviour
 
         sprintTimer = Mathf.Clamp(sprintTimer, 0.0f, maxSprint);
 
-        
+        if (!isOnWall)
+        {
+            myRigidbody.useGravity = true;
+            myRigidbody.AddForce(transform.up * grav, ForceMode.Impulse);
+        }
 
 
     }
@@ -175,11 +179,7 @@ public class CharacterController : MonoBehaviour
 
           
         }
-            if (!isOnWall)
-            {
-                myRigidbody.useGravity = true;
-                myRigidbody.AddForce(transform.up * grav, ForceMode.Impulse);
-            }
+            
     }
 
     void sprint()
