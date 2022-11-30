@@ -6,7 +6,9 @@ using UnityEngine.UIElements;
 public class CharacterController : MonoBehaviour
 {
 
-    
+    [Header("settings")]
+    public GameObject respawnPoint;
+    public float respawnTimerMax = 2f;
 
     [Header("camera")]
     public float camRotationSpeed = -1.5f;
@@ -22,6 +24,10 @@ public class CharacterController : MonoBehaviour
     public float maxSprint = 5.0f;
     float sprintTimer;
     public float jumpForce = 300.0f;
+    
+    
+
+    float respawnTimer = 0f;
 
     [Header("climb settings")]
     public float climbSpeed;
@@ -112,6 +118,19 @@ public class CharacterController : MonoBehaviour
             myRigidbody.AddForce(transform.up * grav, ForceMode.Impulse);
         }
 
+        if (Input.GetKey(KeyCode.R))
+        {
+            respawnTimer += Time.deltaTime;
+        }
+        if(Input.GetKeyUp(KeyCode.R))
+        {
+            respawnTimer = 0f;
+        }
+        if(respawnTimer >= respawnTimerMax)
+        {
+            transform.position = respawnPoint.transform.position;
+            respawnTimer = 0f;
+        }
 
     }
 
