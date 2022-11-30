@@ -14,6 +14,7 @@ TagManager:
   - Joints
   - Arm 2
   - Egg
+  - retry
   layers:
   - Default
   - TransparentFX

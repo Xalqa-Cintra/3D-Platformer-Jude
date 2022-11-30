@@ -8,15 +8,20 @@ public class textForCollectibles : MonoBehaviour
 {
 
     [Header("Text")]
-    public string textNeedMoreSouls = ("You need more for the Gods");
-    public string textSummonGod = ("The Gods have been satisfied");
+    public string textGiveMePower = "Wise witch Doctor, collect more skulls in order to enact your revenge on those outlanders.";
+    public string textGettingThere = "Collect more doctor. Revenge is within your grasp.";
+    public string textHalfwayThere = "Only a little more my dear follower, everything will be set right soon.";
+    public string textGoToEgg = "You've done well Lich, now go and awaken the egg.";
+    public string textRetry = "Poor Witch Doctor, You can Resummon yourself to your coffin if you hold R.";
+    public string textNeedMoreSouls = ("You need more for the Gods.");
+    public string textSummonGod = ("The Gods have been satisfied.");
     public string textCanJump = ("You can now jump!");
     public string textCanClimb = ("You can now climb!");
     public string textCanSprint = ("You can now sprint!");
-    public string textCanClimbFast = ("You now have anchors for your undead body");
+    public string textCanClimbFast = ("You now have anchors for your undead body.");
     public string textKnife = ("I wonder what this knife can be used for?");
     public string textHeart = ("Seems kind of odd for this heart to be unaffected by time, what if its needed for something?");
-    public string textRibs = "The start of your revenge is nigh, now find the rest of your body";
+    public string textRibs = "The start of your revenge is nigh, now find the rest of your body.";
     public string textScore = "Score: ";
     public GameObject textBox;
     public GameObject textScoreBox;
@@ -49,10 +54,44 @@ public class textForCollectibles : MonoBehaviour
             
         }
         textElement2.text = textScore+skullPoints;
+
+        if (skullPoints == 1)
+        {
+            
+            textElement.text = textGiveMePower;
+            
+        }
+        if (skullPoints == 10)
+        {
+            
+            textElement.text = textGettingThere;
+            
+        }
+        if (skullPoints == 20)
+        {
+            
+            textElement.text = textHalfwayThere;
+            
+        }
+         
+            if (skullPoints == 40)
+        {
+            
+            textElement.text = textGoToEgg;
+           
+        }
+        Debug.Log(textTimer);
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.tag == "retry")
+        {
+            textBox.SetActive(true);
+            textElement.text = textRetry;
+            textTimer = 300f;
+        }
+
         if (other.tag == "Leg 1")
         {
 
@@ -108,7 +147,10 @@ public class textForCollectibles : MonoBehaviour
 
         if (other.tag == "Skull")
         {
+            
             skullPoints = skullPoints + 1;
+            textTimer = 300f;
+            textBox.SetActive(true);
         }
 
         if (other.tag == "Egg"&&skullPoints >= 40)
@@ -124,7 +166,7 @@ public class textForCollectibles : MonoBehaviour
             textTimer = 300f;
         }
 
-
+        
 
 
     }

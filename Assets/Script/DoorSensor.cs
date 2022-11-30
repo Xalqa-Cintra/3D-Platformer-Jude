@@ -6,14 +6,14 @@ public class DoorSensor : MonoBehaviour
 {
 
     public MovingDoor myDoor;
-    public Spawner mySpawner;
+   
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
             myDoor.isOpen = true;
-            mySpawner.spawnObject = true;
+            
         }
     }
 
