@@ -58,7 +58,7 @@ public class textForCollectibles : MonoBehaviour
 
             textBox.SetActive(true);
             textElement.text = textCanJump;
-            textTimer = 70f;
+            textTimer = 300f;
         }
 
         if (other.tag == "Leg 2")
@@ -66,14 +66,14 @@ public class textForCollectibles : MonoBehaviour
 
             textBox.SetActive(true);
             textElement.text = textCanSprint;
-            textTimer = 70f;
+            textTimer = 300f;
         }
 
         if (other.tag == "Arm 1")
         {
             textBox.SetActive(true);
             textElement.text = textCanClimb;
-            textTimer = 70f;
+            textTimer = 300f;
         }
 
         if (other.tag == "Joints")
@@ -81,21 +81,21 @@ public class textForCollectibles : MonoBehaviour
 
             textBox.SetActive(true);
             textElement.text = textCanClimbFast;
-            textTimer = 200f;
+            textTimer = 300f;
         }
 
         if (other.tag == "Heart")
         {
             textBox.SetActive(true);
             textElement.text = textHeart;
-            textTimer = 200f;
+            textTimer = 300f;
         }
 
         if (other.tag == "Knife")
         {
             textBox.SetActive(true);
             textElement.text = textKnife;
-            textTimer = 200f;
+            textTimer = 300f;
         }
 
         if (other.tag == "Ribcage")
@@ -103,7 +103,7 @@ public class textForCollectibles : MonoBehaviour
 
             textBox.SetActive(true);
             textElement.text = textRibs;
-            textTimer = 200f;
+            textTimer = 300f;
         }
 
         if (other.tag == "Skull")
@@ -115,13 +115,13 @@ public class textForCollectibles : MonoBehaviour
         {
             textBox.SetActive(true);
             textElement.text = textSummonGod;
-            textTimer = 100f;
+            textTimer = 300f;
         } 
         if (other.tag == "Egg"&&skullPoints < 40)
         {
             textBox.SetActive(true);
             textElement.text = textNeedMoreSouls;
-            textTimer = 100f;
+            textTimer = 300f;
         }
 
 
