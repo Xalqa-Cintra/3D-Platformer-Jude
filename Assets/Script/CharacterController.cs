@@ -5,6 +5,10 @@ using UnityEngine.UIElements;
 
 public class CharacterController : MonoBehaviour
 {
+    public Animator myAnim;
+
+    
+
 
     [Header("settings")]
     public GameObject respawnPoint;
@@ -60,6 +64,8 @@ public class CharacterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        
         cam = GameObject.Find("Main Camera");
         myRigidbody = GetComponent<Rigidbody>();
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
@@ -76,6 +82,10 @@ public class CharacterController : MonoBehaviour
         
 
         Vector3 newVelocity = (transform.forward * Input.GetAxis("Vertical") * maxSpeed) + (transform.right * Input.GetAxis("Horizontal") * maxSpeed);
+
+        myAnim.SetFloat("Speed", newVelocity.magnitude);
+        
+        
 
         myRigidbody.velocity = new Vector3(newVelocity.x, myRigidbody.velocity.y, newVelocity.z);
 
@@ -108,7 +118,7 @@ public class CharacterController : MonoBehaviour
         }
         isOnGround = Physics.CheckSphere(groundChecker.transform.position, 0.1f, groundLayer);
         isOnWall = Physics.CheckSphere(wallChecker.transform.position, 0.1f, wallLayer);
-
+        myAnim.SetBool("isOnGround", isOnGround);
 
         sprintTimer = Mathf.Clamp(sprintTimer, 0.0f, maxSprint);
 
@@ -196,7 +206,8 @@ public class CharacterController : MonoBehaviour
         {
             myRigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
 
-          
+          myAnim.SetTrigger("jumped");
+
         }
             
     }
