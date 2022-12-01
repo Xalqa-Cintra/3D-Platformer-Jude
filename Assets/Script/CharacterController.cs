@@ -1,5 +1,6 @@
  using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -7,8 +8,14 @@ public class CharacterController : MonoBehaviour
 {
     public Animator myAnim;
 
-    
-
+    [Header("HUD")]
+    public GameObject boneShin;
+    public GameObject boneFemur;
+    public GameObject boneArms;
+    public GameObject boneJoints;
+    public GameObject boneRibs;
+    public GameObject boneHead;
+    public GameObject boneShadow;
 
     [Header("settings")]
     public GameObject respawnPoint;
@@ -64,8 +71,15 @@ public class CharacterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        boneShin.SetActive(false);
+        boneFemur.SetActive(false);
+        boneArms.SetActive(false);
+        boneJoints.SetActive(false);
+        boneRibs.SetActive(false);
+        boneHead.SetActive(false);
+        boneShadow.SetActive(false);
 
-        
+
         cam = GameObject.Find("Main Camera");
         myRigidbody = GetComponent<Rigidbody>();
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
@@ -79,7 +93,65 @@ public class CharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        { 
+            boneShadow.SetActive(true);
+
+            boneHead.SetActive(true);
+
+            if (canSprint == true)
+            {
+                boneFemur.SetActive(true);
+            }
+            if (canClimb == true)
+            {
+                boneArms.SetActive(true);
+            }
+            if (canClimbFast == true)
+            {
+                boneJoints.SetActive(true);
+            }
+            if (ribcage == true)
+            {
+                boneRibs.SetActive(true);
+            }
+            if (canJump == true)
+            {
+                boneShin.SetActive(true);
+            }
+           
+        }
+
+        if (Input.GetKeyUp(KeyCode.Tab))
+        {
+
+            boneShadow.SetActive(false);
+
+            boneHead.SetActive(false);
+
+            if (canSprint == true)
+            {
+                boneFemur.SetActive(false);
+            }
+            if (canClimb == true)
+            {
+                boneArms.SetActive(false);
+            }
+            if (canClimbFast == true)
+            {
+                boneJoints.SetActive(false);
+            }
+            if (ribcage == true)
+            {
+                boneRibs.SetActive(false);
+            }
+            if (canJump == true)
+            {
+                boneShin.SetActive(false);
+            }
+
+        }
 
         Vector3 newVelocity = (transform.forward * Input.GetAxis("Vertical") * maxSpeed) + (transform.right * Input.GetAxis("Horizontal") * maxSpeed);
 

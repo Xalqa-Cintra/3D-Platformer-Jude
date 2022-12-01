@@ -26,6 +26,12 @@ public class textForCollectibles : MonoBehaviour
     public GameObject textBox;
     public GameObject textScoreBox;
 
+    [Header("Bools")]
+    public bool skull_1 = false;
+    public bool skull_10 = false;
+    public bool skull_20 = false;
+    public bool skull_40 = false;
+
     public int skullPoints;
 
     Text textElement;
@@ -39,6 +45,11 @@ public class textForCollectibles : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        skull_1 = false;
+        skull_10 = false;
+        skull_20 = false;
+        skull_40 = false;
+
         god.SetActive(false);
         textBox.SetActive(false);
         textElement = textBox.GetComponent<Text>();
@@ -49,38 +60,52 @@ public class textForCollectibles : MonoBehaviour
     void Update()
     {
         textTimer = textTimer - 0.1f;
-        
+
         if (textTimer < 0f)
         {
             textBox.SetActive(false);
-            
-        }
-        textElement2.text = textSkulls+skullPoints;
 
-        if (skullPoints == 1)
-        {
-            
-            textElement.text = textGiveMePower;
-            
         }
-        if (skullPoints == 10)
+        textElement2.text = textSkulls + skullPoints;
+
+        if (skull_1 == false) 
         {
-            
-            textElement.text = textGettingThere;
-            
+            if (skullPoints == 1)
+            {
+
+                textElement.text = textGiveMePower;
+                skull_1 = true;
+            }
         }
-        if (skullPoints == 20)
+
+        if (skull_10 == false)
         {
-            
-            textElement.text = textHalfwayThere;
-            
+            if (skullPoints == 10)
+            {
+
+                textElement.text = textGettingThere;
+                skull_10 = true;
+            }
         }
-         
+
+        if (skull_20 == false)
+        {
+            if (skullPoints == 20)
+            {
+
+                textElement.text = textHalfwayThere;
+                skull_20 = true;
+            }
+        }
+
+        if (skull_40 == false)
+        {
             if (skullPoints == 40)
-        {
-            
-            textElement.text = textGoToEgg;
-           
+            {
+
+                textElement.text = textGoToEgg;
+                skull_40 = true;
+            }
         }
         Debug.Log(textTimer);
     }
