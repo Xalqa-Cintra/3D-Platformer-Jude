@@ -32,6 +32,12 @@ public class textForCollectibles : MonoBehaviour
     public bool skull_20 = false;
     public bool skull_40 = false;
 
+    [Header("Sound")]
+    public AudioClip music;
+    public AudioClip roar;
+    public AudioSource musicPlayer;
+    public AudioSource roarPlayer;
+
     public int skullPoints;
 
     Text textElement;
@@ -55,6 +61,11 @@ public class textForCollectibles : MonoBehaviour
         textElement = textBox.GetComponent<Text>();
         textElement2 = textScoreBox.GetComponent<Text>();
 
+        musicPlayer.clip = music;
+        musicPlayer.loop = true;
+        musicPlayer.Play();
+
+
     }
 
     void Update()
@@ -72,7 +83,7 @@ public class textForCollectibles : MonoBehaviour
         {
             if (skullPoints == 1)
             {
-
+                textBox.SetActive(true);
                 textElement.text = textGiveMePower;
                 skull_1 = true;
             }
@@ -82,7 +93,7 @@ public class textForCollectibles : MonoBehaviour
         {
             if (skullPoints == 10)
             {
-
+                textBox.SetActive(true);
                 textElement.text = textGettingThere;
                 skull_10 = true;
             }
@@ -92,7 +103,7 @@ public class textForCollectibles : MonoBehaviour
         {
             if (skullPoints == 20)
             {
-
+                textBox.SetActive(true);
                 textElement.text = textHalfwayThere;
                 skull_20 = true;
             }
@@ -102,7 +113,7 @@ public class textForCollectibles : MonoBehaviour
         {
             if (skullPoints == 40)
             {
-
+                textBox.SetActive(true);
                 textElement.text = textGoToEgg;
                 skull_40 = true;
             }
@@ -116,7 +127,7 @@ public class textForCollectibles : MonoBehaviour
         {
             textBox.SetActive(true);
             textElement.text = textRetry;
-            textTimer = 100f;
+            textTimer = 500f;
         }
 
         if (other.tag == "Leg 1")
@@ -124,7 +135,7 @@ public class textForCollectibles : MonoBehaviour
 
             textBox.SetActive(true);
             textElement.text = textCanJump;
-            textTimer = 100f;
+            textTimer = 500f;
         }
 
         if (other.tag == "Leg 2")
@@ -132,14 +143,14 @@ public class textForCollectibles : MonoBehaviour
 
             textBox.SetActive(true);
             textElement.text = textCanSprint;
-            textTimer = 100f;
+            textTimer = 500f;
         }
 
         if (other.tag == "Arm 1")
         {
             textBox.SetActive(true);
             textElement.text = textCanClimb;
-            textTimer = 100f;
+            textTimer = 500f;
         }
 
         if (other.tag == "Joints")
@@ -147,21 +158,21 @@ public class textForCollectibles : MonoBehaviour
 
             textBox.SetActive(true);
             textElement.text = textJoints;
-            textTimer = 100f;
+            textTimer = 500f;
         }
 
         if (other.tag == "Heart")
         {
             textBox.SetActive(true);
             textElement.text = textHeart;
-            textTimer = 100f;
+            textTimer = 500f;
         }
 
         if (other.tag == "Knife")
         {
             textBox.SetActive(true);
             textElement.text = textKnife;
-            textTimer = 100f;
+            textTimer = 500f;
         }
 
         if (other.tag == "Ribcage")
@@ -169,29 +180,30 @@ public class textForCollectibles : MonoBehaviour
 
             textBox.SetActive(true);
             textElement.text = textRibs;
-            textTimer = 100f;
+            textTimer = 500f;
         }
 
         if (other.tag == "Skull")
         {
             
             skullPoints = skullPoints + 1;
-            textTimer = 100f;
-            textBox.SetActive(true);
+            textTimer = 500f;
+            
         }
 
         if (other.tag == "Egg"&&skullPoints >= 40)
         {
             textBox.SetActive(true);
             textElement.text = textSummonGod;
-            textTimer = 100f;
+            textTimer = 500f;
             god.SetActive(true);
         } 
         if (other.tag == "Egg"&&skullPoints < 40)
         {
             textBox.SetActive(true);
             textElement.text = textNeedMoreSouls;
-            textTimer = 100f;
+            textTimer = 500f;
+            roarPlayer.PlayOneShot(roar);
         }
 
         
