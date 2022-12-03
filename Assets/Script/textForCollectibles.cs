@@ -31,6 +31,8 @@ public class textForCollectibles : MonoBehaviour
     public bool skull_10 = false;
     public bool skull_20 = false;
     public bool skull_40 = false;
+    public bool knife = false;
+    public bool heart = false;
 
     [Header("Sound")]
     public AudioClip music;
@@ -123,7 +125,21 @@ public class textForCollectibles : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "retry")
+
+        if (other.tag == "Heart")
+        {
+            heart = true;
+
+        }
+
+        if (other.tag == "Knife")
+        {
+            knife = true;
+
+
+        }
+
+        if (other.tag == "retry")
         {
             textBox.SetActive(true);
             textElement.text = textRetry;
@@ -191,20 +207,34 @@ public class textForCollectibles : MonoBehaviour
             
         }
 
-        if (other.tag == "Egg"&&skullPoints >= 40)
-        {
-            textBox.SetActive(true);
-            textElement.text = textSummonGod;
-            textTimer = 500f;
-            god.SetActive(true);
-        } 
-        if (other.tag == "Egg"&&skullPoints < 40)
-        {
-            textBox.SetActive(true);
-            textElement.text = textNeedMoreSouls;
-            textTimer = 500f;
-            roarPlayer.PlayOneShot(roar);
-        }
+
+        
+        
+            
+            
+                if (other.tag == "Egg" && skullPoints >= 40)
+                {
+                    if (knife == true)
+                    {
+                        if (heart == true)
+                        {
+                            textBox.SetActive(true);
+                            textElement.text = textSummonGod;
+                            textTimer = 500f;
+                            roarPlayer.PlayOneShot(roar);
+                            god.SetActive(true);
+                        }
+                    }
+                }
+                if (other.tag == "Egg" && skullPoints < 40)
+                {
+                    textBox.SetActive(true);
+                    textElement.text = textNeedMoreSouls;
+                    textTimer = 500f;
+                    
+                }
+            
+        
 
         
 
