@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using UnityEngine.XR;
 
 public class textForCollectibles : MonoBehaviour
 {
@@ -37,8 +38,13 @@ public class textForCollectibles : MonoBehaviour
     [Header("Sound")]
     public AudioClip music;
     public AudioClip roar;
+    public AudioClip bone;
+    public AudioClip jump;
     public AudioSource musicPlayer;
     public AudioSource roarPlayer;
+    public AudioSource bonePlayer;
+    public AudioSource jumpPlayer;
+
 
     public int skullPoints;
 
@@ -67,6 +73,8 @@ public class textForCollectibles : MonoBehaviour
         musicPlayer.loop = true;
         musicPlayer.Play();
 
+
+        
 
     }
 
@@ -120,7 +128,21 @@ public class textForCollectibles : MonoBehaviour
                 skull_40 = true;
             }
         }
-        Debug.Log(textTimer);
+        
+        
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            bonePlayer.clip = bone;
+            bonePlayer.loop = true;
+            bonePlayer.Play();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+           
+            jumpPlayer.PlayOneShot(jump);
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -212,7 +234,7 @@ public class textForCollectibles : MonoBehaviour
         
             
             
-                if (other.tag == "Egg" && skullPoints >= 40)
+      if (other.tag == "Egg" && skullPoints >= 40)
                 {
                     if (knife == true)
                     {
@@ -225,14 +247,14 @@ public class textForCollectibles : MonoBehaviour
                             god.SetActive(true);
                         }
                     }
-                }
-                if (other.tag == "Egg" && skullPoints < 40)
-                {
+      }
+       if (other.tag == "Egg" && skullPoints < 40)
+       {
                     textBox.SetActive(true);
                     textElement.text = textNeedMoreSouls;
                     textTimer = 500f;
                     
-                }
+       }
             
         
 
