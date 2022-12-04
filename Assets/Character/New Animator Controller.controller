@@ -83,7 +83,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Mutant Jump Attack
-  m_Speed: 1
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 2331888012892938666}
@@ -97,7 +97,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 933a157858bc25044807cc5e34c48f29, type: 3}
+  m_Motion: {fileID: -203655887218126122, guid: 395e0c89e4b5cea4192f3b06fa989cce, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

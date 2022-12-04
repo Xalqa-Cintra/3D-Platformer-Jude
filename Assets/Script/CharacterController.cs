@@ -191,6 +191,7 @@ public class CharacterController : MonoBehaviour
         isOnGround = Physics.CheckSphere(groundChecker.transform.position, 0.1f, groundLayer);
         isOnWall = Physics.CheckSphere(wallChecker.transform.position, 0.1f, wallLayer);
         myAnim.SetBool("isOnGround", isOnGround);
+        
 
         sprintTimer = Mathf.Clamp(sprintTimer, 0.0f, maxSprint);
 

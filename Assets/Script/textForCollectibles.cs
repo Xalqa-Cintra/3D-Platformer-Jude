@@ -16,7 +16,7 @@ public class textForCollectibles : MonoBehaviour
     public string textNeedMoreSouls = ("You need more for the Gods.");
     public string textSummonGod = ("The Gods have been satisfied.");
     public string textCanJump = ("You can now jump!");
-    public string textCanClimb = ("You can now climb!");
+    public string textCanClimb = ("You can now climb up vines!");
     public string textCanSprint = ("You can now sprint!");
     public string textJoints = ("You now have anchors for your undead body.");
     public string textKnife = ("I wonder what this knife can be used for?");
